@@ -4,7 +4,7 @@ describe 'GET api/v1/topics/', type: :request do
   let(:user) { create(:user) }
   let(:api_v1_topic_path) { '/api/v1/topics' }
 
-  context "only one topic exists" do
+  context 'only one topic exists' do
     let!(:topic) { create(:topic, :with_icon) }
 
     it 'returns success' do
@@ -13,7 +13,7 @@ describe 'GET api/v1/topics/', type: :request do
       expect(response).to have_http_status(:success)
     end
     
-    it "returns successfully one topic" do
+    it 'returns successfully one topic' do
       get api_v1_topic_path, headers: auth_headers, as: :json
       
       expect(json[:topics][0][:title]).to eq topic.title
@@ -21,10 +21,10 @@ describe 'GET api/v1/topics/', type: :request do
     end
   end
     
-  context "has several topics" do
+  context 'has several topics' do
     let!(:topics) { create_list(:topic, 3) }
 
-    it "returns 3 topics" do  
+    it 'returns 3 topics' do  
       get api_v1_topic_path, headers: auth_headers, as: :json
 
       expect(json[:topics].length).to eq(3)
