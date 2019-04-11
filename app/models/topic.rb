@@ -11,6 +11,6 @@
 
 class Topic < ApplicationRecord
   has_one_attached :icon
-  
+
   validates :title, presence: true
 end
