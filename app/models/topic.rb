@@ -10,7 +10,7 @@
 #
 
 class Topic < ApplicationRecord
-  validates :title, presence: true
-
   has_one_attached :icon
+  
+  validates :title, presence: true
 end

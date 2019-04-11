@@ -2,8 +2,13 @@ module FilesTestHelper
   extend self
   extend ActionDispatch::TestProcess
 
-  def png_name; 'test-image.png' end
-  def png; upload(png_name, 'image/png') end
+  def png_name
+    'test-image.png'
+  end
+
+  def png
+    upload(png_name, 'image/png')
+  end
 
   private
 

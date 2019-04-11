@@ -12,19 +12,19 @@ describe 'GET api/v1/topics/', type: :request do
 
       expect(response).to have_http_status(:success)
     end
-    
+
     it 'returns successfully one topic' do
       get api_v1_topic_path, headers: auth_headers, as: :json
-      
+
       expect(json[:topics][0][:title]).to eq topic.title
       expect(json[:topics][0][:icon_url]).not_to be_nil
     end
   end
-    
+
   context 'has several topics' do
     let!(:topics) { create_list(:topic, 3) }
 
-    it 'returns 3 topics' do  
+    it 'returns 3 topics' do
       get api_v1_topic_path, headers: auth_headers, as: :json
 
       expect(json[:topics].length).to eq(3)

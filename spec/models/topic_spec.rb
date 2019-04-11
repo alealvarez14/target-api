@@ -13,6 +13,6 @@ require 'rails_helper'
 
 describe Topic do
   describe 'validations' do
-    it { should validate_presence_of(:title) }
+    it { is_expected.to validate_presence_of(:title) }
   end
 end
