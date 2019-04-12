@@ -14,6 +14,7 @@ Rails.application.routes.draw do
         resource :user, only: %i[update show] do
           get :profile
         end
+        resources :topics, only: %i[index]
       end
     end
   end
