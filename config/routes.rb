@@ -15,6 +15,7 @@ Rails.application.routes.draw do
           get :profile
         end
         resources :topics, only: %i[index]
+        resources :targets, only: %i[index create destroy]
       end
     end
   end
