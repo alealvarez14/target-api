@@ -22,5 +22,5 @@ class Target < ApplicationRecord
   belongs_to :topic
   belongs_to :user
 
-  validates :title, :radius, :lat, :long, :topic_id, :user_id, presence: true
+  validates :title, :radius, :lat, :long, presence: true
 end

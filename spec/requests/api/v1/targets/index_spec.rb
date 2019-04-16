@@ -2,9 +2,8 @@ require 'rails_helper'
 
 describe 'GET api/v1/targets/', type: :request do
   let(:user) { create(:user) }
-  let(:api_v1_target_path) { '/api/v1/targets' }
 
-  subject { get api_v1_target_path, headers: auth_headers, as: :json }
+  subject { get api_v1_targets_path, headers: auth_headers, as: :json }
 
   it 'returns success' do
     subject

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe 'POST api/v1/targets/', type: :request do
-  let(:api_v1_target_path) { '/api/v1/targets' }
   let(:user) { create(:user) }
   let(:topic) { create(:topic) }
   let(:radius) { 200 }
@@ -20,7 +19,7 @@ describe 'POST api/v1/targets/', type: :request do
     }
   end
 
-  subject { post api_v1_target_path, headers: auth_headers, params: params, as: :json }
+  subject { post api_v1_targets_path, headers: auth_headers, params: params, as: :json }
 
   context 'when the request is valid' do
     it 'returns success' do
@@ -37,7 +36,7 @@ describe 'POST api/v1/targets/', type: :request do
       expect(user.targets.last.user_id).to eq(user.id)
     end
 
-    it 'has associates the correct topic' do
+    it 'associates the correct topic' do
       subject
       expect(user.targets.last.topic_id).to eq(topic.id)
     end
