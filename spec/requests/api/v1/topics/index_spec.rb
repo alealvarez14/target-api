@@ -10,7 +10,7 @@ describe 'GET api/v1/topics/', type: :request do
     let!(:topic) { create(:topic, :with_icon) }
 
     it 'returns success' do
-      subject 
+      subject
 
       expect(response).to have_http_status(:success)
     end

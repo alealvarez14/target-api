@@ -7,7 +7,7 @@ describe 'POST api/v1/targets/', type: :request do
   let(:radius) { 200 }
   let(:lat) { -34.907103 }
   let(:long) { -56.201237 }
-  
+
   let(:params) do
     {
       target: {

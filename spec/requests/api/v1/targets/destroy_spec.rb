@@ -5,10 +5,9 @@ describe 'DELETE api/v1/targets/:id', type: :request do
   let(:topic) { create(:topic) }
   let!(:targets) { create_list(:target, 3, user: user, topic: topic) }
   let!(:target) { targets.first }
-  let(:api_v1_target_path) { 
-    ->(id) {
-      "/api/v1/targets/#{id}" }
-    }
+  let(:api_v1_target_path) do
+    ->(id) { "/api/v1/targets/#{id}" }
+  end
 
   subject { delete api_v1_target_path[target.id], headers: auth_headers, as: :json }
 

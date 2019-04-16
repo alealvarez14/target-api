@@ -23,10 +23,6 @@ module Api
       end
 
       def target
-        @target ||= target.current_user.find(params[:id])
-      end
-
-      def target
         @target ||= current_user.targets.find(target_id)
       end
 

@@ -24,7 +24,7 @@ FactoryBot.define do
     lat     { Faker::Address.latitude }
     long    { Faker::Address.longitude }
     radius  { Faker::Number.number(5) }
-    topic 
+    topic
     user
   end
 end

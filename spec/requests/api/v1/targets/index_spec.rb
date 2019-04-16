@@ -7,7 +7,7 @@ describe 'GET api/v1/targets/', type: :request do
   subject { get api_v1_target_path, headers: auth_headers, as: :json }
 
   it 'returns success' do
-    subject 
+    subject
     expect(response).to have_http_status(:success)
   end
 
@@ -19,10 +19,10 @@ describe 'GET api/v1/targets/', type: :request do
       expect(json[:targets].length).to eq(3)
     end
   end
-  
+
   context 'a user has no targets' do
     let!(:targets) { create_list(:target, 3) }
-    
+
     it 'doesn\'t return other user\'s targets' do
       subject
       expect(json[:targets].length).to eq(0)

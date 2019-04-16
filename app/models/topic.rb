@@ -11,7 +11,8 @@
 
 class Topic < ApplicationRecord
   has_one_attached :icon
-  has_many :targets
+
+  has_many :targets, dependent: :destroy
 
   validates :title, presence: true
 end
