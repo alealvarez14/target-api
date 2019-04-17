@@ -23,4 +23,9 @@ class Target < ApplicationRecord
   belongs_to :user
 
   validates :title, :radius, :lat, :long, presence: true
+  validate :limit_targets, on: :create
+
+  def limit_targets
+    errors.add(:target, 'Can only create 10 targets') if user.targets.count >= 10
+  end
 end
