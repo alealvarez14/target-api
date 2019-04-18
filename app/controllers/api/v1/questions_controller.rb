@@ -10,7 +10,11 @@ module Api
       private
 
       def check_params
-        render_parameter_missing('subject or body') unless params[:subject].present? && params[:body].present?
+        render_parameter_missing('subject or body') unless params_present?
+      end
+
+      def params_present?
+        params[:subject].present? && params[:body].present?
       end
     end
   end
