@@ -19,6 +19,8 @@
 #
 
 class Target < ApplicationRecord
+  MAX_TARGETS = 10
+
   belongs_to :topic
   belongs_to :user
 
@@ -26,6 +28,7 @@ class Target < ApplicationRecord
   validate :limit_targets, on: :create
 
   def limit_targets
-    errors.add(:target, 'Can only create 10 targets') if user.targets.count >= 10
+    return unless user.targets.count >= 10
+    errors.add(:target, I18n.t('api.targets.errors.max_targets', max_targets: MAX_TARGETS))
   end
 end

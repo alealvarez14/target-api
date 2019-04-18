@@ -35,7 +35,7 @@ describe Target do
     it { is_expected.to validate_presence_of(:radius) }
   end
 
-  context 'limit the amount of targets' do
+  context 'when trying to create targets' do
     let(:user)  { create(:user) }
     let(:topic) { create(:topic) }
     let!(:targets) { create_list(:target, 10, user: user, topic: topic) }
@@ -47,8 +47,7 @@ describe Target do
     end
 
     it 'is invalid to create more than 10 targets' do
-      subject.valid?
-      expect(subject.errors[:target]).to include('Can only create 10 targets')
+      expect { subject }.not_to change(user.targets, :count)
     end
   end
 end
