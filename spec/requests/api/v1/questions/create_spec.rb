@@ -9,7 +9,7 @@ describe 'POST api/v1/questions', type: :request do
   context 'when the params are valid' do
     it 'returns status code 204' do
       subject
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(:no_content)
     end
   end
 

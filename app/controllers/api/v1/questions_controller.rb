@@ -4,7 +4,9 @@ module Api
       before_action :check_params
 
       def create
-        ApplicationMailer.email_admin(current_user.email, params[:subject], params[:body]).deliver_now
+        AdminQuestionsMailer.admin_questions(
+          current_user.email, params[:subject],
+          params[:body]).deliver_later
       end
 
       private
