@@ -9,4 +9,11 @@ module Helpers
   def auth_headers
     user.create_new_auth_token
   end
+
+  def mock_email
+    {
+      subject: Faker::Address.city,
+      body: Faker::Address.country
+    }
+  end
 end

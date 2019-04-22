@@ -28,7 +28,7 @@ class Target < ApplicationRecord
   validate :limit_targets, on: :create
 
   def limit_targets
-    return unless user.targets.count >= 10
+    return unless user.targets.count >= MAX_TARGETS
 
     errors.add(:target, I18n.t('api.targets.errors.max_targets', max_targets: MAX_TARGETS))
   end

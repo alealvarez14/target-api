@@ -16,6 +16,7 @@ Rails.application.routes.draw do
         end
         resources :topics, only: %i[index]
         resources :targets, only: %i[index create destroy]
+        post '/questions', to: 'questions#create'
       end
     end
   end
